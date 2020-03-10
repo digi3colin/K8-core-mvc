@@ -1,0 +1,19 @@
+{
+  "name": "k8-core-mvc",
+  "version": "0.0.1",
+  "description": "The MVC classes inspired from Kohana framework's pattern",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digi3colin/K8-core-mvc.git"
+  },
+  "author": "Colin Leung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/digi3colin/K8-core-mvc/issues"
+  },
+  "homepage": "https://github.com/digi3colin/K8-core-mvc#readme"
+}
