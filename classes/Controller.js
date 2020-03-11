@@ -1,26 +1,15 @@
-/*
- * This file is part of K8MVC (https://github.com/digi3colin/k8).
- * Copyright (c) 2019-2020 Colin Leung.
+/**
+ * Copyright (c) 2020 Colin Leung (Komino)
  *
- *  K8MVC is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  *
- *  K8MVC is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with K8MVC.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 class Controller{
   /**
    *
    * @param {Request} request
-   * @param {Reply} response
    */
   constructor(request){
     this.headerSent = false;
@@ -46,7 +35,7 @@ class Controller{
 
   getAction() {
     if(!this.request.params)return 'index';
-    return `action_${this.request.params.action || 'index'}`
+    return this.request.params.action || 'index';
   }
 
   async before(){
@@ -61,10 +50,15 @@ class Controller{
     }
   }
 
+  /**
+   *
+   * @param {string | null} actionName
+   * @returns {ControllerMixin}
+   */
   async execute(actionName = null){
     try{
       //guard check function action_* exist
-      const action = actionName || this.getAction();
+      const action = 'action_' + (actionName || this.getAction());
 
       if(this[action] === undefined){
         this.notFound(`${ this.constructor.name }::${action} not found`);
@@ -108,7 +102,7 @@ class Controller{
    *
    * @param {string} msg
    */
-  notFound(msg){
+  notFound(msg= ''){
     this.body = `404 / ${ msg }`;
     this.exit(404);
   }
@@ -129,6 +123,15 @@ class Controller{
   exit(code){
     this.headerSent = true;
     this.status = code;
+  }
+
+  /**
+   *
+   * @param {string} msg
+   */
+  forbidden(msg= ''){
+    this.body = `403 / ${ msg }`;
+    this.exit(403);
   }
 
   async action_index(){

@@ -1,6 +1,6 @@
 {
-  "name": "k8-core-mvc",
-  "version": "0.0.1",
+  "name": "@komino/k8-core-mvc",
+  "version": "0.0.4",
   "description": "The MVC classes inspired from Kohana framework's pattern",
   "main": "index.js",
   "scripts": {
