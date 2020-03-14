@@ -12,9 +12,10 @@ class Controller{
    * @param {Request} request
    */
   constructor(request){
-    this.headerSent = false;
     this.mixins = [];
+    this.mixin = {};//list of behaviour added by mixin
 
+    this.headerSent = false;
     this.request = request;
 
     this.body = '';
