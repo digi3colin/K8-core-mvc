@@ -8,4 +8,6 @@
 
 class Model{}
 
+Object.freeze(Model.prototype);
+Object.freeze(Model);
 module.exports = Model;

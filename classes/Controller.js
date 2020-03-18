@@ -139,4 +139,6 @@ class Controller{
   }
 }
 
+Object.freeze(Controller.prototype);
+Object.freeze(Controller);
 module.exports = Controller;

@@ -38,4 +38,7 @@ class ControllerMixin {
     if(this[action] !== undefined)await this[action]();
   }
 }
+
+Object.freeze(ControllerMixin.prototype);
+Object.freeze(ControllerMixin);
 module.exports = ControllerMixin;
