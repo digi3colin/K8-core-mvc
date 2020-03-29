@@ -46,5 +46,4 @@ View.clearCache();
 View.globalData = {};
 
 Object.freeze(View.prototype);
-Object.freeze(View);
 module.exports = View;
