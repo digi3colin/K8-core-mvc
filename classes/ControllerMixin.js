@@ -40,5 +40,4 @@ class ControllerMixin {
 }
 
 Object.freeze(ControllerMixin.prototype);
-Object.freeze(ControllerMixin);
 module.exports = ControllerMixin;

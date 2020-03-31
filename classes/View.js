@@ -25,6 +25,7 @@ class View{
     return JSON.stringify(this.collectProps());
   }
 
+  //use data object (faster) or direct assign variable to view instances (slower)
   collectProps(){
     if(this.data)return Object.assign({}, View.globalData, this.data);
 
