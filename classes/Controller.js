@@ -13,7 +13,7 @@ class Controller{
    */
   constructor(request){
     this.mixins = [];
-    this.mixin = {};//list of behaviour added by mixin
+    this.mixin = new Map();//list of behaviour added by mixin
 
     this.headerSent = false;
     this.request = request;

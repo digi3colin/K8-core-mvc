@@ -26,10 +26,10 @@ describe('test Controller', () => {
   test('add mixin', async() => {
     const ins = new Controller({});
     ins.addMixin(new TestMixin(ins));
-    expect(ins.mixin.foo).toBe(undefined);
+    expect(ins.mixin.get('foo')).toBe(undefined);
 
     await ins.execute('index');
-    expect(ins.mixin.foo).toBe('bar');
+    expect(ins.mixin.get('foo')).toBe('bar');
   });
 
   test('get action', async()=>{
