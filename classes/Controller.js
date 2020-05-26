@@ -52,6 +52,17 @@ class Controller{
   }
 
   /**
+   * Loop the mixins and run the action
+   * @param {string} fullActionName
+   * @returns {Promise<void>}
+   */
+  async mixinsAction(fullActionName){
+    for(let i = 0; i < this.mixins.length; i++){
+      await this.mixins[i].execute(fullActionName);
+    }
+  }
+
+  /**
    *
    * @param {string | null} actionName
    * @returns {ControllerMixin}
@@ -71,9 +82,7 @@ class Controller{
       }
 
       if(!this.headerSent){
-        for(let i = 0; i < this.mixins.length; i++){
-          await this.mixins[i].execute(action);
-        }
+        await this.mixinsAction(action);
       }
       if(!this.headerSent)await this[action]();
       if(!this.headerSent)await this.after();
