@@ -74,7 +74,12 @@ class Controller{
 
       if(this[action] === undefined){
         this.notFound(`${ this.constructor.name }::${action} not found`);
-        return;
+        return {
+          status: this.status,
+          body: this.body,
+          headers : this.headers,
+          cookies : this.cookies,
+        };
       }
 
       if(!this.headerSent){

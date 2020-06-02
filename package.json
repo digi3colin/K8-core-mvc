@@ -1,6 +1,6 @@
 {
   "name": "@komino/k8-core-mvc",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "The MVC classes inspired from Kohana framework's pattern",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,8 @@
     "url": "https://github.com/digi3colin/K8-core-mvc/issues"
   },
   "homepage": "https://github.com/digi3colin/K8-core-mvc#readme",
-  "dependencies": {},
+  "dependencies": {
+    "jest": "^26.0.1"
+  },
   "devDependencies": {}
 }
